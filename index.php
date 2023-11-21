@@ -10,11 +10,11 @@
 </head>
 
 <body>
-    <h2> Welcome to the Dashboard!</h2>
+    <h2>Welcome to the Dashboard!</h2>
     <?php
     if (isset($_GET['error'])) {
         if ($_GET['error'] == "please enter your email or password") {
-            echo '<div sclass="alert alert-danger" role="alert">
+            echo '<div class="alert alert-danger" role="alert">
             please enter your email or password
           </div>';
         } elseif ($_GET['error'] == "email or password not found") {
@@ -26,7 +26,7 @@
     ?>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form method="POST" id="signup" action="createaccout.php" onsubmit="return validateInput();">
+            <form method="POST" id="signup" action="createaccount.php">
                 <h1>Create Account</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -72,8 +72,8 @@
         </div>
     </div>
 
+    <script src="js/script.js"></script>
 
 </body>
-<script src="js/script.js"></script>
 
 </html>
