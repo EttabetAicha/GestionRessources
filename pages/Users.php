@@ -29,12 +29,59 @@
                                     </span>
                                     <span>Edit</span>
                                 </a>
-                                <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1"  data-bs-toggle="modal" data-bs-target="#createUserModal" >
                                     <span class=" pe-2">
                                         <i class="bi bi-plus"></i>
                                     </span>
                                     <span>Create</span>
                                 </a>
+                                <!-- Modal for creating a new user -->
+<div class="modal fade" id="createUserModal" tabindex="-1" aria-labelledby="createUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createUserModalLabel">Create New User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Form for creating a new user -->
+                <form method="POST" action="create_user.php" enctype="multipart/form-data">
+                    <!-- Photo -->
+                    <div class="mb-3">
+                        <label for="newUserPhoto" class="form-label">User Photo</label>
+                        <input type="file" class="form-control" id="newUserPhoto" accept=".jpg,.png,.jpeg" name="img">
+                    </div>
+
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label for="newUserName" class="form-label">User Name</label>
+                        <input type="text" class="form-control" id="newUserName" name="name">
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="newUserEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="newUserEmail" name="Email">
+                    </div>
+
+                    <!-- Roles -->
+                    <div class="mb-3">
+                        <label for="newUserRoles" class="form-label">Roles</label>
+                        <input type="text" class="form-control" id="newUserRoles" name="Roles">
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <label for="newUserPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="newUserPassword" name="Password">
+                    </div>
+
+                    <button type="submit" name="submit" class="btn btn-primary">Create User</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
                                 <a href="#" class="btn d-inline-flex btn-sm btn-warning mx-1">
                                     <span class=" pe-2">
                                         <i class="bi bi-gear-wide-connected"></i>
