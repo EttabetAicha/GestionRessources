@@ -93,8 +93,8 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-globe-americas"></i> Ranking
+                        <a class="nav-link" href="SousCategory.php">
+                            <i class="bi bi-globe-americas"></i> SousCategory
                         </a>
                     </li>
                     <li class="nav-item">
