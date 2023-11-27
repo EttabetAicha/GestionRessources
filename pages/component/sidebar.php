@@ -57,7 +57,7 @@
                 <!-- Navigation -->
 
                 <?php
-                if ($_SESSION['role'] === 'admin ') {
+                if ($_SESSION['role'] === 'admin') {
                     echo '
                         <div class="navbar-nav">
                         <li class="nav-item">
