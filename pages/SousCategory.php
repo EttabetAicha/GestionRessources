@@ -137,7 +137,7 @@
                                 <td class="text-end">
                                 <button type="button" class="btn btn-primary edit-btn" data-bs-toggle="modal" data-bs-target="#userProfileModal<?php echo $value['SubcategoryID']; ?>">Edit</button>
                                         <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                            <a href="removeCat.php?CategoryID=<?php echo $value['CategoryID'] ?>"><i class="bi bi-trash"></i></a>
+                                            <a href="removesubcat.php?souCategoryID=<?php echo $value['SubcategoryID'] ?>"><i class="bi bi-trash"></i></a>
                                         </button>
                                     </td>
                                 </tr>
