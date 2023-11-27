@@ -11,6 +11,7 @@ if (isset($_POST['submit'])) {
     $result = $statment->fetch();
     if ($result['Email'] === $email && $result['password'] === $password) {
         $_SESSION['name'] = $result['NomUtilisateur'];
+        $_SESSION['role'] = $result['Roles'];
         $_SESSION['email'] = $result['Email'];
         $_SESSION['password'] = $result['password'];
         if (isset($_POST['check'])) {

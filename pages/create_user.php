@@ -24,6 +24,7 @@ if (isset($_POST['submit'])) {
     $statement->bindParam(':userRoles', $userRoles);
     $result = $statement->execute();
     if ($result) {
+        header('location:Users.php');
         echo "User created successfully!";
     } else {
         echo "Error creating user: " . $statement->errorInfo()[2];

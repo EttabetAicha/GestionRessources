@@ -18,7 +18,67 @@
         <!-- Header -->
         <header class="bg-surface-primary border-bottom pt-6">
             <div class="container-fluid">
-                <!-- ... (Your existing header code) ... -->
+                <div class="mb-npx">
+                    <div class="row align-items-center">
+                        <!-- Actions -->
+                        <div class="col-sm-6 col-12 text-sm-end ">
+                            <div class="mx-n1">
+                                <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
+                                    <span class=" pe-2">
+                                        <i class="bi bi-pencil"></i>
+                                    </span>
+                                    <span>Edit</span>
+                                </a>
+                                <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#createCategoryModal">
+                                    <span class=" pe-2">
+                                        <i class="bi bi-plus"></i>
+                                    </span>
+                                    <span>Create</span>
+                                </a>
+                                <!-- Modal for creating a new category -->
+                                <div class="modal fade" id="createCategoryModal" tabindex="-1" aria-labelledby="createCategoryModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="createCategoryModalLabel">Create New Category</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <!-- Form for creating a new category -->
+                                                <form method="POST" action="create_cat.php" enctype="multipart/form-data">
+                                                    <!-- Category Name -->
+                                                    <div class="mb-3">
+                                                        <label for="newid" class="form-label">Category Id</label>
+                                                        <input type="text" class="form-control" id="newid" name="categoryid">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="newCategoryName" class="form-label">Category Name</label>
+                                                        <input type="text" class="form-control" id="newCategoryName" name="category_name">
+                                                    </div>
+
+                                                    <button type="submit" name="submit" class="btn btn-primary">Create Category</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a href="#" class="btn d-inline-flex btn-sm btn-warning mx-1">
+                                    <span class=" pe-2">
+                                        <i class="bi bi-gear-wide-connected"></i>
+                                    </span>
+                                    <span>Manage</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Nav -->
+                    <ul class="nav nav-tabs mt-4 overflow-x border-0">
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link active">All files</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </header>
         <!-- Main -->
@@ -48,6 +108,9 @@
 
                                 <td class="text-end">
                                     <button type="button" class="btn btn-primary edit-btn" data-bs-toggle="modal" data-bs-target="#userProfileModal<?php echo $value['CategoryID']; ?>">Edit</button>
+                                    <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                                        <a href="removeCat.php?CategoryID=<?php echo $value['CategoryID'] ?>"><i class="bi bi-trash"></i></a>
+                                    </button>
                                 </td>
                             </tr>
 

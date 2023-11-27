@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 04:35 PM
+-- Generation Time: Nov 27, 2023 at 09:18 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -37,7 +37,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`CategoryID`, `NomCategorie`) VALUES
-(13, 'categorie1'),
+(1, 'jhhjghjsd'),
+(13, 'categorie12'),
 (40, 'categorie2');
 
 -- --------------------------------------------------------
@@ -83,8 +84,10 @@ CREATE TABLE `ressources` (
 --
 
 INSERT INTO `ressources` (`ResourceID`, `CategoryID`, `SubcategoryID`, `SquadID`, `ProjectID`) VALUES
-(234, 13, 66, 221, 77),
-(846, 40, 87, 11, 123);
+(222, 13, 66, 221, 123),
+(234, 13, 66, 300, 90),
+(846, 40, 87, 11, 123),
+(1111, 13, 87, 221, 77);
 
 -- --------------------------------------------------------
 
@@ -103,6 +106,7 @@ CREATE TABLE `souscategories` (
 --
 
 INSERT INTO `souscategories` (`SubcategoryID`, `NomSousCategorie`, `CategoryID`) VALUES
+(0, 'khhgyu', 13),
 (66, 'sousCategorie1', 13),
 (87, 'sousCategorie2', 40);
 
@@ -137,8 +141,10 @@ INSERT INTO `squads` (`SquadID`, `ProjectID`, `UserID`) VALUES
 
 CREATE TABLE `utilisateurs` (
   `UserID` int(11) NOT NULL,
+  `img` varchar(255) NOT NULL,
   `NomUtilisateur` varchar(255) DEFAULT NULL,
   `Email` varchar(50) DEFAULT NULL,
+  `password` varchar(50) NOT NULL,
   `Roles` varchar(123) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -146,12 +152,14 @@ CREATE TABLE `utilisateurs` (
 -- Dumping data for table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`UserID`, `NomUtilisateur`, `Email`, `Roles`) VALUES
-(1, 'aicha', 'aichaettabet@gmail.com', 'leaderSquad'),
-(2, 'soumiyaAyouch', 'souma@gmail.com', 'member1'),
-(3, 'najwaElahanfi', 'najwa@gmail.com', 'member2'),
-(4, 'nouhailamalal', 'noha@gmail.com', 'member3'),
-(5, 'samira', 'samira@email.com', 'member4');
+INSERT INTO `utilisateurs` (`UserID`, `img`, `NomUtilisateur`, `Email`, `password`, `Roles`) VALUES
+(1, 'Rectangle 48.png', 'aicha', 'aichaettabet@gmail.com', 'aicha123', 'leaderSquad'),
+(2, 'Rectangle22.png', 'soumiyaAyouchQ', 'souma@gmail.com', 'souma123', 'member1'),
+(3, 'Rectangle 49.png', 'njiwa', 'najwa@gmail.com', 'najwa123', 'member2'),
+(4, 'Rectangle.png', 'lwila', 'noha@gmail.com', 'nouha123', 'member3'),
+(5, 'Rectangle2.png', 'samira', 'samira@email.com', 'samira123', 'member4'),
+(6, 'Rectangle 48.png', 'ghita', 'ghita@gmail.com', 'ghita123', 'member7'),
+(7, 'Free Vector _ Abstract technology sql illustration.jpeg', 'rghia', 'rghia@gmail.com', 'rghia123', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -174,10 +182,10 @@ ALTER TABLE `projets`
 --
 ALTER TABLE `ressources`
   ADD PRIMARY KEY (`ResourceID`),
-  ADD KEY `CategoryID` (`CategoryID`),
   ADD KEY `SubcategoryID` (`SubcategoryID`),
   ADD KEY `SquadID` (`SquadID`),
-  ADD KEY `ProjectID` (`ProjectID`);
+  ADD KEY `ProjectID` (`ProjectID`),
+  ADD KEY `CategoryID` (`CategoryID`);
 
 --
 -- Indexes for table `souscategories`
@@ -208,7 +216,7 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT for table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
@@ -221,7 +229,8 @@ ALTER TABLE `ressources`
   ADD CONSTRAINT `ressources_ibfk_1` FOREIGN KEY (`CategoryID`) REFERENCES `categories` (`CategoryID`),
   ADD CONSTRAINT `ressources_ibfk_2` FOREIGN KEY (`SubcategoryID`) REFERENCES `souscategories` (`SubcategoryID`),
   ADD CONSTRAINT `ressources_ibfk_3` FOREIGN KEY (`SquadID`) REFERENCES `squads` (`SquadID`),
-  ADD CONSTRAINT `ressources_ibfk_4` FOREIGN KEY (`ProjectID`) REFERENCES `projets` (`ProjectID`);
+  ADD CONSTRAINT `ressources_ibfk_4` FOREIGN KEY (`ProjectID`) REFERENCES `projets` (`ProjectID`),
+  ADD CONSTRAINT `ressources_ibfk_5` FOREIGN KEY (`CategoryID`) REFERENCES `categories` (`CategoryID`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `souscategories`
